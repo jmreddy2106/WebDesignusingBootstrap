@@ -1,0 +1,45 @@
+body{
+    padding: 2%;
+}
+.bg-border{
+    margin-top: 2em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+.text-format{
+    position: relative;
+    background-color: #cabad8;
+    border-radius: 15px;
+    padding: 1%;
+    text-align: center;
+}
+.edu-style{
+    position: relative;
+    background-color: #fbfbfb;
+    padding: 1%;
+    border: 1px solid #EEE;
+}
+.title:after{
+    content:"";
+    display:block;
+    height:4px;
+    width:40px;
+    background-color: #6195FF;
+    margin-top: 20px;
+}
+.segment{
+    position: relative;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    margin: 1rem;
+}
+.red{
+    border-top: 2px solid #d40404 !important;
+}
+.green {
+    border-top: 2px solid green !important;
+}
+.blue {
+    border-top: 2px solid rgb(0, 110, 255) !important;
+}

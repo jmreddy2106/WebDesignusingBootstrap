@@ -43,3 +43,18 @@ body{
 .blue {
     border-top: 2px solid rgb(0, 110, 255) !important;
 }
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+    padding: 2%;
+}
+.left{
+    width:25%;
+    text-align: center;
+    box-shadow: 2px solid #000;
+}
+.right{
+    width:75%;
+    border-right: 1px solid #000;
+}

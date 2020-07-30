@@ -1,0 +1,23 @@
+{
+    "profile":{
+        "name": "Jagan Mohan Reddy D",
+        "designation": "Associate Professor",
+        "profile_pic": "./images/dj.jpg",
+        "education": ["Phd - BITS-Pilani, Hyd", "M.Tec - Jadavpur University, Kolkata", "B.Tech - VNR VJIET, Hyd"]
+    },
+    "experience":{
+        "exp1": "Worked as a Data Science",
+        "exp2": "Working as a Associate Professor"
+    },
+    "contact":{
+        "doornum": "Block - I ", 
+        "street": "Dept of CSE", 
+        "landmark": "Lakireddy Bali Reddy College of Engg.", 
+        "city": "Mylavaram", 
+        "state": "Andhra Pradesh",
+        "pincode": " - 521 230",
+        "email": "jmreddy.lbrce@gmail.com",
+        "mobile": "+91 91607 38986"
+    }
+
+}

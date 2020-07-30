@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON Example</title>
+    <link rel="icon" type="image/svg+xml" href="images/cv.svg">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" >
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--jQuery Lib-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--Popper Lib-->
+    <script type="text/javascript" src="js/popper.js"></script>
+    <!--Bootstrap Lib-->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <h2 class="text-cont" style="text-align: center;"> </h2>
+    
+        <div class="main">
+            <div class="left">
+                
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var demo = document.querySelector(".text-cont");
+    
+    //Getting Title from data.txt
+    fetch("./data.txt").
+        then(
+            res => res.text()).
+            then(
+                data => demo.innerHTML = data)
+
+    // var djimg = document.querySelector(".djImg");
+    // fetch("./images/dj.jpg").
+    //         then(
+    //             resp => resp.blob()).
+    //             then(
+    //                 image => djimg.src = URL.createObjectURL(image))
+
+    //Extracting Data from JSON object
+    fetch("./data.json").then(
+                 res => res.json()).
+                 then(data => details(data))
+
+var main = document.querySelector(".main")
+var left = document.querySelector(".left")
+var right = document.querySelector(".right")
+
+//Retrive Key => value pairs from JSON
+    var details = function(info){
+
+        // Extracting Name
+        var name = document.createElement('h4')
+        name.textContent = info.profile.name
+        name.style.color = "darkblue"
+        left.appendChild(name)
+
+        // Extracting Designation
+        var desg = document.createElement('h6')
+        desg.textContent = info.profile.designation
+        desg.style.color = "gray"
+        left.appendChild(desg)
+
+        // Extracting Profile image
+        var img1 = document.createElement('img')
+        img1.src = info.profile.profile_pic
+        img1.style.width = "45%"
+        img1.style.borderRadius = "5%"
+        left.appendChild(img1)
+
+        // Extracting Address
+        var contact = document.createElement('h6')
+        var newLine = "\r\n"
+        contact.textContent += info.contact.doornum
+        contact.textContent += info.contact.street 
+        contact.textContent += newLine
+        contact.textContent += info.contact.landmark
+        contact.textContent += newLine
+        contact.textContent += info.contact.city
+        contact.textContent += newLine
+        contact.textContent += info.contact.state
+        contact.textContent += info.contact.pincode
+        left.appendChild(contact)
+
+        // Creating Educaation Title
+        var edu = document.createElement('h2')
+        var edu_title = "Education"
+        edu.append(edu_title)
+        edu.style.color = "#e83f5f"
+        right.appendChild(edu)
+        
+        // Extracting Education
+        var list = document.createElement("ul")
+        list.style.paddingLeft = "5%"
+        info.profile.education.map(edu_info => {
+            var education = document.createElement("li")
+            education.textContent = edu_info
+            list.append(education)            
+        })
+        right.appendChild(list)
+
+        // Creating Work experince Title
+        var exp = document.createElement('h2')
+        var exp_title = "Work Experience"
+        exp.append(exp_title)
+        exp.style.color = "#4834b1"
+        exp.style.marginTop = "3%"
+        right.appendChild(exp)
+        
+        // Extracting Work experience
+        var work_ul = document.createElement('ul')
+        var work_list1 = document.createElement("li")
+        var work_list2 = document.createElement("li")
+        work_list1.append(info.experience.exp1)        
+        work_ul.append(work_list1)
+        work_list2.append(info.experience.exp2)
+        work_ul.append(work_list2)
+        right.appendChild(work_ul)   
+
+        // Extracting email address 
+        var email = document.createElement('div')
+        email.style.display = "flex"
+        email.style.flexWrap = "wrap"
+        var img_email = document.createElement('img')
+        img_email.src = "./images/gmail.svg"
+        img_email.style.width = "5%"
+        email.append(img_email)
+        right.appendChild(email)
+
+        var email_id = document.createElement('a')
+        email_id.href = "mailto: " + info.contact.email
+        email_id.append("   " + info.contact.email)
+        email.append(email_id)
+        right.appendChild(email)
+
+        // Extracting phone number 
+        var phone = document.createElement('div')
+        phone.style.display = "flex"
+        phone.style.flexWrap = "wrap"
+        var img_phone = document.createElement('img')
+        img_phone.src = "./images/phone.png"
+        img_phone.style.width = "5%"
+        phone.append(img_phone)
+        right.appendChild(phone)
+
+        var phone_num = document.createElement('a')
+        phone_num.href = "tel: " + info.contact.mobile
+        phone_num.append("   " + info.contact.mobile)
+        phone.append(phone_num)
+        right.appendChild(phone)
+    }
+    main.appendChild(right)
+    main.appendChild(left)
+
+</script>
+
+</html>
